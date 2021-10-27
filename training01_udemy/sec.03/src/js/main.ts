@@ -8,13 +8,9 @@ const argv = yargs(process.argv.slice(2)).options({
 if (argv.run === "") {
 	console.log(
 		"実行するファイルが指定されていません。コマンドライン引数 run でファイル名を指定してください\n" + 
-		"ファイル src/js/001.ts を実行する場合: npm start -- --run 001.ts"
+		"ファイル src/js/001.ts を実行する場合: npm start -- --run 001"
 	)
 } else {
 	/* 指定されたファイルをモジュールとして読み込み */
-	try{
-		import("./test");
-	}catch(e){
-		console.error("error");
-	}
+	import("./" + argv.run);
 }
